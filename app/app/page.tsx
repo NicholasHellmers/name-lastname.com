@@ -19,6 +19,8 @@ export default function Home() {
 
       <About />
 
+      {/* <Resume /> */}
+
       <Projects />
 
       {/* @ts-expect-error Server Component */}

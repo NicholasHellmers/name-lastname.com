@@ -5,10 +5,19 @@ export default function Header() {
     <div className="w-screen h-24 flex gap-40 justify-center items-center">
         <ul className="flex gap-10">
             <li>
-                <a href="https://github.com/NicholasHellmers" target="_blank">GitHub</a>
+                <Link href="https://github.com/NicholasHellmers" target="_blank">
+                  <p>GitHub</p>
+                </Link>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/nicholas-hellmers/" target="_blank">LinkedIn</a>
+                <Link href="https://www.linkedin.com/in/nicholas-hellmers/" target="_blank">
+                  <p>LinkedIn</p>
+                </Link>
+            </li>
+            <li>
+                <Link href="/resume.pdf" target="_blank">
+                    <p>Resume</p>
+                </Link>
             </li>
         </ul>
     </div>
