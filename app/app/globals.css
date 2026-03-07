@@ -3,25 +3,209 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 22, 27, 34;
-  --background-end-rgb: 22, 27, 34;
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2330;
+  --accent: #4f8ef7;
+  --accent-glow: rgba(79, 142, 247, 0.25);
+  --text-primary: #e6edf3;
+  --text-muted: #8b949e;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(79, 142, 247, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 22, 27, 34;
-    --background-end-rgb: 22, 27, 34;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Animations ────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+/* ── Gradient text ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #4f8ef7 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass card ────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+/* ── Section heading ───────────────────────────── */
+.section-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ── Skill badge ───────────────────────────────── */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(79, 142, 247, 0.1);
+  border: 1px solid rgba(79, 142, 247, 0.3);
+  color: #93b8fa;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.skill-badge:hover {
+  background: rgba(79, 142, 247, 0.2);
+  border-color: rgba(79, 142, 247, 0.6);
+}
+
+/* ── Nav link ──────────────────────────────────── */
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Accent button ─────────────────────────────── */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-accent:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--border-accent);
+  color: var(--accent);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(79, 142, 247, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ── Section divider ───────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto;
+  max-width: 72rem;
+}
+
+/* ── Language dot ──────────────────────────────── */
+.lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
 }

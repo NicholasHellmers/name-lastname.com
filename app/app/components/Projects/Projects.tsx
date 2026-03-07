@@ -1,36 +1,36 @@
-import Project from './Project';
+import Project from './Project'
+
+const projects = [
+  {
+    name: 'Paraguay Supermarket Products Dataset',
+    desc: 'A dataset of 40,000+ supermarket products from Paraguay with names, prices (in Guaraníes), and image URLs — collected via a custom Go-powered web scraper.',
+    project_url: 'https://www.kaggle.com/datasets/nikihellmers/paraguay-supermarket-products',
+    img_url: '/dataset-cover.jpeg',
+    tags: ['Go', 'Python', 'Docker', 'Data'],
+  },
+  {
+    name: 'Connect with your Peers',
+    desc: 'A Chrome extension that streamlines networking with classmates on Canvas LMS, making it easier to find and connect with peers across courses.',
+    project_url: 'https://chromewebstore.google.com/detail/connect-with-your-peers/cefoneomgidhcbjohhnbfffdeikjopbj',
+    img_url: '/unnamed.png',
+    tags: ['Chrome Extension', 'JavaScript', 'HTML', 'CSS'],
+  },
+]
 
 export default function Projects() {
   return (
-    <div className='pt-5'>
-
-      <div>
-
-          <h2 className='text-center text-2xl'> Some of my Projects </h2>
-
+    <section id="projects" className="max-w-6xl mx-auto px-6 py-14">
+      <div className="animate-fadeInUp delay-100">
+        <span className="section-heading">Projects</span>
       </div>
 
-      <div className='lg:w-[50%] m-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-10 py-5 px-10'>
-          <Project
-              name='Paraguay Supermarket Products Dataset'
-              desc='This dataset includes the name, price (in Guaranies), product url, and image url of supermarket products. The dataset counts with over 40,000 products from 2 different supermarkets in Paraguay. The data was obtained by a scraper I built using Go.'
-              project_url='https://www.kaggle.com/datasets/nikihellmers/paraguay-supermarket-products'
-              img_url='/dataset-cover.jpeg'
-          />
-          <Project
-              name='Paraguay Supermarket Products WebApp'
-              desc='This uses the information gained from "Paraguayan Supermarket Products Dataset" in order to make an interative querying of the data into webapp form.'
-              project_url='https://productos-paraguay.vercel.app/'
-              img_url='/sm-webapp.png'
-          />
-          <Project
-              name='Connect with your peers'
-              desc='This Chrome extension project aims to streamline the networking with your peers on Canvas.'
-              project_url='https://chromewebstore.google.com/detail/connect-with-your-peers/cefoneomgidhcbjohhnbfffdeikjopbj'
-              img_url='/unnamed.png'
-          />
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        {projects.map((project, i) => (
+          <div key={project.name} className={`animate-fadeInUp delay-${(i + 2) * 100}`}>
+            <Project {...project} />
+          </div>
+        ))}
       </div>
-      
-    </div>
+    </section>
   )
 }

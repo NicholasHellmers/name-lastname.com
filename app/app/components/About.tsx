@@ -1,14 +1,49 @@
+const skills = {
+  "Languages": ["Go", "Python", "TypeScript", "JavaScript", "SQL", "Scala", "Java", "PHP"],
+  "Frameworks & Tools": ["React", "Next.js", "Docker", "PostgreSQL", "MongoDB", "MySQL", "Git"],
+}
+
 export default function About() {
   return (
-    <div className="text-center lg:w-[50%] m-auto py-5 px-10 leading-loose">
+    <section id="about" className="max-w-6xl mx-auto px-6 py-14">
+      <div className="animate-fadeInUp delay-100">
+        <span className="section-heading">About Me</span>
+      </div>
 
-        <h2 className="text-2xl leading-loose pb-4">
-            About Me
-        </h2>
-        <div className="flex flex-col justify-center items-center gap-8">
-          <p>Hi! I&apos;m a dedicated software engineer driven by a relentless curiosity and a deep passion for technology. My journey in the tech industry has allowed me to explore and gain expertise in a diverse array of programming languages and technologies. My approach is always centered around crafting innovative solutions and pushing the boundaries of what&apos;s possible in software development.</p>
-          <p>Currently, I am actively seeking new work opportunities that align with my skills and passions. I&apos;m looking for a role that not only challenges me but also allows me to collaborate with talented teams on innovative projects. I am particularly interested in positions where I can contribute to creating meaningful software solutions and continue to grow as a developer. If you&apos;re looking for someone who is eager to tackle new challenges and make an impact, I&apos;d love to connect!</p>
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* Bio */}
+        <div className="animate-fadeInUp delay-200 space-y-4 text-[var(--text-muted)] leading-relaxed text-[0.97rem]">
+          <p>
+            Hi, I&apos;m <span className="text-[var(--text-primary)] font-semibold">Nicholas (Niki) Hellmers Davalos</span> — a
+            software engineer currently at <span className="text-[var(--accent)] font-medium">Oracle</span> in the Greater
+            Boston area. I hold a BS in Computer Science from the{" "}
+            <span className="text-[var(--text-primary)] font-medium">University of Colorado Boulder</span>.
+          </p>
+          <p>
+            I&apos;m driven by curiosity and a passion for building software that solves real-world problems. My work spans
+            backend systems, developer tooling, data pipelines, and full-stack web applications. I thrive in environments
+            where I can collaborate with talented teams and continuously grow as an engineer.
+          </p>
+          <p>
+            Outside of work I enjoy competitive programming, exploring open-source projects, and building side projects
+            that push me to learn new technologies. I&apos;m fluent in English, Spanish, and Guaraní.
+          </p>
         </div>
-    </div>
+
+        {/* Skills */}
+        <div className="animate-fadeInUp delay-300 space-y-6">
+          {Object.entries(skills).map(([category, items]) => (
+            <div key={category}>
+              <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-3 font-semibold">{category}</p>
+              <div className="flex flex-wrap gap-2">
+                {items.map(skill => (
+                  <span key={skill} className="skill-badge">{skill}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
