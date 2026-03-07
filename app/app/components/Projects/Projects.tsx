@@ -20,7 +20,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="max-w-6xl mx-auto px-6 py-14">
-      <div className="animate-fadeInUp delay-100">
+      <div className="animate-fadeInUp delay-100 text-center">
         <span className="section-heading">Projects</span>
       </div>
 

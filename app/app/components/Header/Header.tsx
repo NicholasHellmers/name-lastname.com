@@ -14,7 +14,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[rgba(13,17,23,0.85)] backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[#161b22] backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
         {/* Wordmark */}
         <Link

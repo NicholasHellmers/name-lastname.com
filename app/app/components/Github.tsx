@@ -31,12 +31,12 @@ export default async function Github() {
 
     return (
         <section id="github" className="max-w-6xl mx-auto px-6 py-20">
-            <div className="animate-fadeInUp delay-100">
+            <div className="animate-fadeInUp delay-100 text-center">
                 <span className="section-heading">GitHub</span>
             </div>
 
             {/* Stats */}
-            <div className="mt-8 flex flex-wrap gap-3 animate-fadeInUp delay-200">
+            <div className="mt-8 flex flex-wrap justify-center gap-3 animate-fadeInUp delay-200">
                 <a
                     href="https://github.com/NicholasHellmers"
                     target="_blank"
