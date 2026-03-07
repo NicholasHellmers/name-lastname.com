@@ -38,21 +38,6 @@ export default function Home() {
             <p className="text-sm text-[var(--text-muted)]">Greater Boston, MA</p>
           </div>
 
-          {/* CTA buttons */}
-          <div className="animate-fadeInUp delay-200 flex flex-wrap gap-3 justify-center">
-            <a href="#about" className="btn-accent">
-              About me
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nicholas-hellmers/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              LinkedIn ↗
-            </a>
-          </div>
-
         </section>
 
         {/* ── Divider ──────────────────────────── */}
@@ -70,14 +55,14 @@ export default function Home() {
         {/* ── Divider ──────────────────────────── */}
         <div className="section-divider" />
 
-        {/* ── Projects ─────────────────────────── */}
-        <Projects />
+        {/* ── GitHub ───────────────────────────── */}
+        <Github />
 
         {/* ── Divider ──────────────────────────── */}
         <div className="section-divider" />
 
-        {/* ── GitHub ───────────────────────────── */}
-        <Github />
+        {/* ── Projects ─────────────────────────── */}
+        <Projects />
       </main>
 
       <Footer />
