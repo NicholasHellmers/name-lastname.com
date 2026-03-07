@@ -1,7 +1,15 @@
-const skills = {
-  "Languages": ["Go", "Python", "TypeScript", "JavaScript", "SQL", "Scala", "Java", "PHP"],
-  "Frameworks & Tools": ["React", "Next.js", "Docker", "PostgreSQL", "MongoDB", "MySQL", "Git"],
-}
+import { languageColors } from '@/util/languageColors'
+
+const skills: { category: string; items: string[] }[] = [
+  {
+    category: 'Languages',
+    items: ['Go', 'Python', 'TypeScript', 'JavaScript', 'SQL', 'Scala', 'Java', 'PHP'],
+  },
+  {
+    category: 'Frameworks & Tools',
+    items: ['React', 'Next.js', 'Docker', 'PostgreSQL', 'MongoDB', 'MySQL', 'Git'],
+  },
+]
 
 export default function About() {
   return (
@@ -32,13 +40,28 @@ export default function About() {
 
         {/* Skills */}
         <div className="animate-fadeInUp delay-300 space-y-6">
-          {Object.entries(skills).map(([category, items]) => (
+          {skills.map(({ category, items }) => (
             <div key={category}>
-              <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-3 font-semibold">{category}</p>
+              <p className="text-xs uppercase tracking-widest text-[var(--text-muted)] mb-3 font-semibold">
+                {category}
+              </p>
               <div className="flex flex-wrap gap-2">
-                {items.map(skill => (
-                  <span key={skill} className="skill-badge">{skill}</span>
-                ))}
+                {items.map(skill => {
+                  const color = languageColors[skill] ?? 'var(--accent)'
+                  return (
+                    <span
+                      key={skill}
+                      className="skill-badge"
+                      style={{
+                        color,
+                        borderColor: `${color}55`,
+                        background: `${color}18`,
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  )
+                })}
               </div>
             </div>
           ))}

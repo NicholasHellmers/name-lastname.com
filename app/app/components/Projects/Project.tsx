@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { languageColors } from '@/util/languageColors'
 
 type ProjectProps = {
   name: string
@@ -34,9 +35,22 @@ export default function Project({ name, desc, project_url, img_url, tags = [] }:
 
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 pt-1">
-            {tags.map(tag => (
-              <span key={tag} className="skill-badge text-xs">{tag}</span>
-            ))}
+            {tags.map(tag => {
+              const color = languageColors[tag] ?? 'var(--accent)'
+              return (
+                <span
+                  key={tag}
+                  className="skill-badge text-xs"
+                  style={{
+                    color,
+                    borderColor: `${color}55`,
+                    background: `${color}18`,
+                  }}
+                >
+                  {tag}
+                </span>
+              )
+            })}
           </div>
         )}
 

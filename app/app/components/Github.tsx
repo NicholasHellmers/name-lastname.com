@@ -1,3 +1,5 @@
+import { languageColors } from '@/util/languageColors'
+
 type GithubData = {
     login: string
     public_repos: number
@@ -9,31 +11,6 @@ type GithubRepo = {
     description: string
     html_url: string
     language: string
-}
-
-const languageColors: { [key: string]: string } = {
-    TypeScript: '#3178c6',
-    JavaScript: '#f1e05a',
-    Go: '#00ADD8',
-    Python: '#3572A5',
-    Rust: '#dea584',
-    Java: '#b07219',
-    Scala: '#c22d40',
-    PHP: '#4F5D95',
-    HTML: '#e34c26',
-    CSS: '#563D7C',
-    Shell: '#89e051',
-    'Jupyter Notebook': '#DA5B0B',
-    C: '#555555',
-    'C++': '#f34b7d',
-    'C#': '#178600',
-    Ruby: '#701516',
-    Swift: '#ffac45',
-    Kotlin: '#F18E33',
-    Dart: '#00B4AB',
-    R: '#198CE7',
-    Lua: '#000080',
-    Haskell: '#5e5086',
 }
 
 async function getGithubData(): Promise<GithubData> {

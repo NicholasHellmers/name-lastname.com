@@ -15,7 +15,7 @@ export default function Home() {
         {/* ── Hero ─────────────────────────────── */}
         <section className="max-w-6xl mx-auto px-6 py-24 flex flex-col items-center text-center gap-8">
           {/* Avatar */}
-          <div className="animate-fadeInUp relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-[var(--border-accent)] shadow-lg shadow-[var(--accent-glow)]">
+          <div className="animate-fadeInUp relative w-32 h-32 rounded-full overflow-hidden">
             <Image
               src="/profile.jpeg"
               alt="Nicholas Hellmers"
@@ -53,13 +53,6 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Subtle scroll nudge */}
-          <div className="animate-fadeInUp delay-400 mt-6 flex flex-col items-center gap-2 text-[var(--text-muted)] text-xs">
-            <span>scroll to explore</span>
-            <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
         </section>
 
         {/* ── Divider ──────────────────────────── */}
